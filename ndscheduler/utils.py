@@ -56,4 +56,7 @@ def get_all_available_jobs():
                             results.append(module_property.meta_info())
                     except TypeError:
                         pass
+
+    results = list(set(results))
+    results.sort(key=lambda x: x['job_class_string'])
     return results
